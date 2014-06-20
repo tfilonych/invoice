@@ -1,0 +1,39 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="invoice.css" type="text/css">
+		<script src="invoice.js"></script>
+			</head>
+	<body>
+		<div id="wrapper">
+				<div id="title"> Invoice </div>
+						<div id="enterInformationBlock"> 
+								<div id="enterProductName"> Product Name: <br> <input type="text" id="valueOfProductName">
+								</div>
+								<div id="selectUnits"> Units: <br> 
+											<select id="valueOfUnits">
+ 												<option>pcs</option>
+  												<option>kg</option>
+  												<option>l</option>
+  												<option>m</option>
+  												<option>m<sub>2</sub></option>
+											</select>
+								</div>
+							<div id="enterQuantity"> Quantity: <br> <input type="text" size="7" id="valueOfQuantity">
+							</div>
+							<div id="enterPrice"> Price, $: <br> <input type="text" size="7" id="valueOfPrice">
+							</div>
+							<div id="add_picture"> <img src="add.png" id="plus" onclick="addInform();"> </div>
+							</div>
+					<div id="tableTitle"> 
+							<div id="number"># </div>
+							<div id="tableNameOfProduct">Product Name </div>
+							<div id="unitsTableField">Units: </div>
+							<div id="quantityTableField">Quantity: </div>
+							<div id="priseTableField">Prise, $: </div>
+						 	<div id="totalSum">Total, $ </div>
+						 	<div id="actions"> Actions </div>
+					 </div>
+				
+				
+		</div>
