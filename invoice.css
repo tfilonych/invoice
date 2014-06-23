@@ -172,3 +172,34 @@ select {
 	text-align: center;
 	line-height: 200%;
 }
+#action_cell {
+	width: 70px;
+	height: 40px;
+	border-radius: 3px;
+	background-color: 8ea7f2;
+	float: left;
+	border: 1px solid white;
+}
+.pencil {
+	width:25px;
+	height: 30px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.trash {
+	width:25px;
+	height: 30px;
+	margin-top: 5px;
+	
+}
+#final {
+	width: 140px;
+	height: 40px;
+	border-radius: 3px;
+	float: left;
+	background-color: bccbf7;
+	margin-right: 3px;
+	color: 000c86;
+	text-align: center;
+	line-height: 200%;
+}
