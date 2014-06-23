@@ -5,11 +5,6 @@ function addInform() {
 	answerRow.setAttribute('class', 'answerRow');
 	answerRow.setAttribute('id', 'row' + counter);
 	
-	var final = document.createElement("div");
-	final.setAttribute('id', 'final');
-	var finalSum = document.getElementById("finalSum");
-	finalSum.appendChild(final);
-	
 	var productNameInput = document.getElementById("valueOfProductName");
 	var unitsInput = document.getElementById("valueOfUnits");
 	var quantityInput = document.getElementById("valueOfQuantity");
@@ -62,6 +57,7 @@ function addInform() {
 	image_trash.setAttribute('src', 'trash.png');
 	image_trash.setAttribute('id', 'trash' + counter);
 	image_trash.setAttribute('class', 'trash');
+	image_trash.setAttribute('onclick', 'deleteRow(this.getAttribute("id"));');
 	action_cell.appendChild(image_trash);
 		
 }
@@ -70,4 +66,10 @@ function found_total_ammount(quantity, price) {
 	return quantity * price;
 }
 
-
+function deleteRow(image_id) {
+	var wrapper = document.getElementById("wrapper");
+	var image = document.getElementById(image_id);
+	var row = image.parentNode;
+	var deleteRow = row.parentNode;
+	wrapper.removeChild(deleteRow);
+}
