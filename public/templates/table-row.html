@@ -1,0 +1,52 @@
+<tr ng-controller="tableRowCtrl as rowCtrl" ng-repeat="product in products" ng-init="rowCtrl.product=product">
+  <td >{{$index+1}}</td>
+  <td>
+  <input type="text" class="form-control input-sm" ng-show="rowCtrl.editable" ng-model="product.productName">
+  <p ng-hide="rowCtrl.editable">
+    {{product.productName}}
+  </p></td>
+  <td>
+  <p ng-hide="rowCtrl.editable">
+    {{product.units}}
+  </p>
+  <select class="form-control input-sm" ng-show="rowCtrl.editable" ng-model="product.units">
+    <option>pcs</option>
+    <option>kg</option>
+    <option>l</option>
+    <option>m</option>
+    <option>m<sub>2</sub></option>
+  </select></td>
+  <td>
+  <p ng-hide="rowCtrl.editable">
+    {{product.quantity}}
+  </p>
+  <input type="text" class="form-control input-sm" ng-show="rowCtrl.editable" ng-model="product.quantity">
+  </td>
+  <td>
+  <p ng-hide="rowCtrl.editable">
+    {{product.price}}
+  </p>
+  <input type="text" class="form-control input-sm" ng-show="rowCtrl.editable" ng-model="product.price">
+  </td>
+  <td>
+  <p ng-hide="rowCtrl.editable" ng-model="rowCtrl.total">
+    {{product.quantity * product.price}}
+  </p>
+  <input type="text" class="form-control input-sm" ng-show="rowCtrl.editable">
+  </td>
+  <td>
+  <div class="btn-group btn-group-sm">
+    <button class="btn btn-default input-sm" ng-click="rowCtrl.save(product.id)" ng-show="rowCtrl.editable">
+      <span class="glyphicon glyphicon-ok"></span>
+    </button>
+    <button class="btn btn-default input-sm" ng-click="rowCtrl.cancel(product.id)" ng-show="rowCtrl.editable">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <button class="btn btn-default input-sm" ng-click="rowCtrl.edit(product.id)" ng-hide="rowCtrl.editable">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+    <button class="btn btn-default input-sm" ng-click="rowCtrl.delete(product.id)" ng-hide="rowCtrl.editable" >
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+  </div></td>
+</tr>

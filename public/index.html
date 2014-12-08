@@ -1,0 +1,89 @@
+<html ng-app="Invoice">
+  <head>
+    <meta charset="utf-8">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/invoice.js"></script>
+    <script src="js/sevices.js"></script>
+    <link rel="stylesheet" href="css/invoice.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body ng-controller="ApplicationController as appCtrl">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="page-header text-center">
+            <h1 class="text-muted">Invoice</h1>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form role="form" name="appForm" ng-submit="appCtrl.save()" novalidate>
+                <div class="form-group col-md-4">
+                  <label for="product">Product Name:</label>
+                  <input type="text" id="product" ng-model="appCtrl.product.productName" name="product" class="form-control input-sm" required>
+                  <div class="error-container text-danger" ng-show="appCtrl.validation.productErr()">
+                    <small>{{appCtrl.validation.error.product}}</small>
+                  </div>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="units">Units:</label>
+                  <select name="units" class="form-control input-sm" ng-model="appCtrl.product.units" required>
+                    <option>pcs</option>
+                    <option>kg</option>
+                    <option>l</option>
+                    <option>m</option>
+                    <option>m<sub>2</sub></option>
+                  </select>
+                  <div class="error-container text-danger" ng-show="appCtrl.validation.unitsErr()">
+                    <small>{{appCtrl.validation.error.units}}</small>
+                  </div>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="quantity">Quantity:</label>
+                  <input type="text" id="quantiy" ng-model="appCtrl.product.quantity" name="quantity" class="form-control input-sm" ng-pattern="numPattern" required>
+                  <div class="error-container text-danger" ng-show="appCtrl.validation.quantityErr()">
+                    <small>{{appCtrl.validation.error.quantity}}</small>
+                  </div>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="price">Price, $:</label>
+                  <input type="text" id="price" ng-model="appCtrl.product.price" name="price" class="form-control input-sm" ng-pattern="numPattern" required>
+                  <div class="error-container text-danger" ng-show="appCtrl.validation.priceErr()">
+                    <small>{{appCtrl.validation.error.price}}</small>
+                  </div>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="add">&nbsp;</label>
+                  <button type="submit" class="btn btn-default input-sm form-control">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="col-md-1 ">#</th>
+                <th class="col-md-2 ">Product name</th>
+                <th class="col-md-2 ">Units</th>
+                <th class="col-md-1 ">Quantity</th>
+                <th class="col-md-2 ">Prise, $</th>
+                <th class="col-md-2 ">Total, $</th>
+                <th class="col-md-2 ">Actions</th>
+              </tr>
+            </thead>
+            <tbody ng-include="'templates/table-row.html'" ></tbody>
+          </table>
+          <div class="col-md-8"></div>
+          <div class="col-md-2">
+            {{totalSum()}}
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </body>
+</html>
